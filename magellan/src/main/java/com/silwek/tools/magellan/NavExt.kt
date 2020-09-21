@@ -12,6 +12,13 @@ fun NavController.safeNavigate(direction: NavDirections) {
 
     }
 }
+fun NavController.safeNavigate(destId: Int) {
+    try {
+        navigate(destId)
+    } catch (ignored: IllegalArgumentException) {
+
+    }
+}
 
 fun Fragment.safeNavigateTo(destId: Int) {
     try {

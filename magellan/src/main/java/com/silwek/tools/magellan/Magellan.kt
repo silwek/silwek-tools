@@ -5,8 +5,14 @@ import android.content.Intent
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
+import androidx.navigation.fragment.NavHostFragment
 
 object Magellan {
+    fun findNavController(fragment: Fragment?): NavController? {
+        if (fragment == null) //Cancel
+            return null
+        return NavHostFragment.findNavController(fragment)
+    }
 
     fun navigateUp(activity: Activity?, defaultIntent: Intent) {
         if (activity == null) //Cancel
@@ -36,6 +42,12 @@ object Magellan {
         if (navController == null) //Cancel
             return
         navController.safeNavigate(direction)
+    }
+
+    fun safeNavigate(navController: NavController?, destId: Int) {
+        if (navController == null) //Cancel
+            return
+        navController.safeNavigate(destId)
     }
 
     fun safeNavigateTo(fragment: Fragment?, destId: Int) {
