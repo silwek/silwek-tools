@@ -1,4 +1,4 @@
-package com.silwek.tools.magellan
+package com.silwek.tools.magellan.java
 
 import android.app.Activity
 import android.content.Intent
@@ -6,8 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
+import com.silwek.tools.magellan.*
 
-class Magellan {
+internal class MagellanExtCompat {
     companion object {
         fun findNavController(fragment: Fragment?): NavController? {
             if (fragment == null) //Cancel

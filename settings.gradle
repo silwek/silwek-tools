@@ -1,3 +1,5 @@
+include ':ui-java'
+include ':magellan-java'
 include ':picturepicker'
 include ':location'
 include ':ui'
