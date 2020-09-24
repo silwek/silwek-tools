@@ -2,11 +2,15 @@
 
 To use libraries to your project, add dependencies in your app build.gradle
 ```
-implementation "com.github.silwek.silwek-tools:magellan:version"
-implementation "com.github.silwek.silwek-tools:ui:version"
-implementation "com.github.silwek.silwek-tools:picturepicker:version"
-implementation "com.github.silwek.silwek-tools:location:version"
-implementation "com.github.silwek.silwek-tools:binding:version"
+com.github.silwek.silwek-tools:location:$tools_version
+com.github.silwek.silwek-tools:ui:$tools_version
+com.github.silwek.silwek-tools:magellan:$tools_version
+com.github.silwek.silwek-tools:picturepicker:$tools_version
+com.github.silwek.silwek-tools:binding:$tools_version
+
+//For Java compatibility add also
+com.github.silwek.silwek-tools:ui-java:$tools_version
+com.github.silwek.silwek-tools:magellan-java:$tools_version
 ```
 
 And in your project build.gradle
