@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -56,5 +58,13 @@ public class UICompat {
 
     public static void hideKeyboard(View view, Dialog parentDialog) {
         UIExtCompat.Companion.hideKeyboard(view, parentDialog);
+    }
+
+    public static void tintBackground(View view, @ColorRes int colorRes){
+        UIExtCompat.Companion.tintBackground(view, colorRes);
+    }
+
+    public static void tintBackgroundColor(View view, @ColorInt int colorInt){
+        UIExtCompat.Companion.tintBackgroundColor(view, colorInt);
     }
 }
