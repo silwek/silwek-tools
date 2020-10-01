@@ -3,6 +3,7 @@ package com.silwek.tools.magellan.java;
 import android.app.Activity;
 import android.content.Intent;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
@@ -15,6 +16,24 @@ public class Magellan {
         if (fragment == null) //Cancel
             return null;
         return NavHostFragment.findNavController(fragment);
+    }
+
+    /**
+     * @return 0 if no destination or null Fragment/NavController
+     */
+    public static int getCurrentDestinationId(@Nullable Fragment fragment) {
+        if (fragment == null) return 0;
+        NavController navController = findNavController(fragment);
+        return getCurrentDestinationId(navController);
+    }
+
+    /**
+     * @return 0 if no destination or null NavController
+     */
+    public static int getCurrentDestinationId(@Nullable NavController navController) {
+        if (navController != null && navController.getCurrentDestination() != null)
+            return navController.getCurrentDestination().getId();
+        else return 0;
     }
 
     public static void navigateUp(Activity activity, Intent defaultIntent) {
