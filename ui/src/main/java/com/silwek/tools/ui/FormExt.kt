@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.silwek.tools.ui.hideKeyboard
 
 
 fun disableForm(fields: List<View>) {
@@ -35,8 +34,8 @@ fun EditText.clear() {
 }
 
 fun Button.attachForm(
-    editText: TextInputEditText,
-    layout: TextInputLayout,
+    editText: EditText,
+    layout: TextInputLayout?,
     isValid: () -> Boolean
 ) {
     isEnabled = isValid()
@@ -45,7 +44,7 @@ fun Button.attachForm(
         }
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            layout.error = null
+            layout?.error = null
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {

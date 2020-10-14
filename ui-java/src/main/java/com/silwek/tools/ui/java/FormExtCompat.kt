@@ -1,16 +1,13 @@
 package com.silwek.tools.ui.java
 
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.silwek.tools.ui.hideKeyboard
-import com.silwek.tools.ui.isEmail
-import com.silwek.tools.ui.isNotEmail
-   internal
+import com.silwek.tools.ui.*
+
+internal
 class FormExtCompat {
     companion object {
 
@@ -29,60 +26,24 @@ class FormExtCompat {
         fun isNotEmail(charSequence: CharSequence): Boolean = charSequence.isNotEmail()
 
         fun lengthAtLeast(charSequence: CharSequence, minLength: Int): Boolean {
-            return minLength <= 0 && charSequence.isBlank() || charSequence.isNotBlank() && charSequence.length >= minLength
+            return charSequence.lengthAtLeast(minLength)
         }
 
         fun clear(editText: EditText) {
-            editText.setText("")
-            editText.hideKeyboard()
+            editText.clear()
         }
 
         fun attachForm(
             validButton: Button,
-            editText: TextInputEditText,
-            layout: TextInputLayout,
+            editText: EditText,
+            layout: TextInputLayout?,
             isValid: () -> Boolean
         ) {
-            validButton.isEnabled = isValid()
-            editText.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable?) {
-                }
-
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
-                    layout.error = null
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    validButton.isEnabled = isValid()
-                }
-
-            })
+            validButton.attachForm(editText, layout, isValid)
         }
 
         fun attachLayout(input: TextInputEditText, layout: TextInputLayout) {
-            input.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable?) {
-                }
-
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
-                    layout.error = null
-                }
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-                }
-
-            })
+            input.attachLayout(layout)
         }
     }
 }
