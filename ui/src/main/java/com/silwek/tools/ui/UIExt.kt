@@ -40,12 +40,14 @@ fun View.showKeyboard(parentDialog: Dialog? = null) {
 }
 
 fun Fragment.hideKeyboard() {
+    view?.clearFocus()
     val inputMethodManager =
         context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
     inputMethodManager?.hideSoftInputFromWindow(view?.windowToken, 0)
 }
 
 fun View.hideKeyboard(parentDialog: Dialog? = null) {
+    clearFocus()
     parentDialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     val inputMethodManager =
         context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
