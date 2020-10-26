@@ -7,6 +7,7 @@ com.github.silwek.silwek-tools:ui:$tools_version
 com.github.silwek.silwek-tools:magellan:$tools_version
 com.github.silwek.silwek-tools:picturepicker:$tools_version
 com.github.silwek.silwek-tools:binding:$tools_version
+com.github.silwek.silwek-tools:network:$tools_version
 
 //For Java compatibility add also
 com.github.silwek.silwek-tools:ui-java:$tools_version
