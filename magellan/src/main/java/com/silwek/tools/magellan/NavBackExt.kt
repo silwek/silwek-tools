@@ -46,7 +46,7 @@ fun Fragment.navigateBack(): Boolean {
     val navController = findNavController()
     val currentDestination = navController.currentDestination ?: return false
     val parent = currentDestination.parent ?: return false
-    val startDestination = parent.startDestination
+    val startDestination = parent.startDestinationId
     return navController.popBackStack(startDestination, false)
 }
 
