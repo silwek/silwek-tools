@@ -52,3 +52,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 }
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = "com.github.silwek.silwek-tools"
+            artifactId = "location"
+            version = project.property('tools_version_name')
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}

@@ -61,8 +61,8 @@ publishing {
     publications {
         release(MavenPublication) {
             groupId = "com.github.silwek.silwek-tools"
-            artifactId = "com.github.silwek.silwek-tools"
-            version = "$tools_version_name"
+            artifactId = "magellan"
+            version = project.property('tools_version_name')
 
             afterEvaluate {
                 from(components["release"])

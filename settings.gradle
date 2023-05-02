@@ -7,4 +7,4 @@ include ':ui'
 include ':magellan'
 include ':binding'
 include ':app'
-rootProject.name = "Silwek Tools"
+rootProject.name = "SilwekTools"
